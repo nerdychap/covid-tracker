@@ -4,8 +4,8 @@ import { useContext } from 'react';
 import { ResultsData } from './../App';
 
 const ResultsView = () => {
-    const CovidResults = useContext(ResultsData);
-    const latestData = CovidResults[CovidResults.length - 1];
+    const { covidResults } = useContext(ResultsData);
+    const latestData = covidResults[covidResults.length - 1];
     const { Active, Country, Confirmed, Deaths, Recovered } = latestData;
     return (
         <React.Fragment>

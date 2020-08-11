@@ -1,17 +1,20 @@
 import React from 'react'
 import Page, { SelectWrapper } from '../styles/HomePageStyling';
+import { useContext } from 'react';
+import { ResultsData } from '../App';
 
-const CountryInput = (props) => {
+const CountryInput = () => {
+    const { countryChange, country } = useContext(ResultsData);
 
     const handleChange = (e) => {
-        props.onCountryChange(e.target.value);
-    }
+        countryChange(e.target.value);
+    };
 
     return (
         <Page>
             <SelectWrapper>
                 <label htmlFor="country">
-                    Select Country<br /><select id="country" name="country" value={props.country} onChange={handleChange} >
+                    Select Country<br /><select id="country" name="country" value={country} onChange={handleChange} >
                         <option value="Afganistan">Afghanistan</option>
                         <option value="Albania">Albania</option>
                         <option value="Algeria">Algeria</option>

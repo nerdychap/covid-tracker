@@ -8,7 +8,11 @@ import axios from 'axios';
 import { createContext } from 'react';
 import Page from './styles/HomePageStyling';
 
-export const ResultsData = createContext([]);
+export const ResultsData = createContext({
+  country: '',
+  countryChange: () => { },
+  covidResults: []
+});
 
 const App = () => {
   const [covidResults, setResult] = useState([]);
@@ -22,15 +26,14 @@ const App = () => {
         setResult(result.data);
         setIsLoaded(true);
       }, (error) => {
-        console.log(error);
         setError(error);
       })
 
   }, [country]);
-
   const countryChange = (country) => {
     setCountry(country);
   };
+
   if (error) {
     return <h1>{error.message}</h1>
   }
@@ -39,8 +42,8 @@ const App = () => {
   }
   return (
     <>
-      <ResultsData.Provider value={covidResults}>
-        <CountryInput onCountryChange={countryChange} country={country} />
+      <ResultsData.Provider value={{ country, countryChange, covidResults }}>
+        <CountryInput />
 
         <ResultsView />
 
