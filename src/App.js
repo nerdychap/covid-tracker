@@ -7,6 +7,7 @@ import { useEffect } from 'react';
 import axios from 'axios';
 import { createContext } from 'react';
 import Page from './styles/HomePageStyling';
+import ErrorBoundary from './components/ErrorBoundary';
 
 export const ResultsData = createContext({
   country: '',
@@ -43,9 +44,12 @@ const App = () => {
   return (
     <>
       <ResultsData.Provider value={{ country, countryChange, covidResults }}>
-        <CountryInput />
+        <ErrorBoundary>
+          <CountryInput />
 
-        <ResultsView />
+          <ResultsView />
+        </ErrorBoundary>
+
 
       </ResultsData.Provider>
     </>
