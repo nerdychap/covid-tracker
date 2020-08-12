@@ -19,7 +19,7 @@ class ErrorBoundary extends React.Component {
     render() {
         if (this.state.hasError) {
             // You can render any custom fallback UI
-            return <ErrorText>It looks like we don't have data for the selected country</ErrorText>;
+            return <ErrorText>It looks like we don't have data for the selected country.<br />Please reload the page and select a different country.</ErrorText>;
         }
 
         return this.props.children;

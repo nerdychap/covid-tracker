@@ -44,9 +44,9 @@ const App = () => {
   return (
     <>
       <ResultsData.Provider value={{ country, countryChange, covidResults }}>
-        <ErrorBoundary>
-          <CountryInput />
+        <CountryInput />
 
+        <ErrorBoundary>
           <ResultsView />
         </ErrorBoundary>
 
