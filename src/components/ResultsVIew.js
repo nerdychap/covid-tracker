@@ -17,6 +17,7 @@ const ResultsView = () => {
                     <Recoveries>Recoveries: {Recovered}</Recoveries>
                     <ActiveCases>Active: {Active}</ActiveCases>
                 </Cases>
+                <small>*The data shown above is not up to date because it is a free API</small>
             </Page>
         </React.Fragment>
 
